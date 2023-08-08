@@ -16,6 +16,9 @@ jobs:
       # 1. On récupère le contenu du dépôt
       - name: "Checkout"
         uses: actions/checkout@v3
+
+      - name: "Locate snort"
+        run: SNORT_PATH=`which snort`
         
       - name: "Run tests"
-        run: ./run_test.sh
+        run: ./run_test.sh $SNORT_PATH
