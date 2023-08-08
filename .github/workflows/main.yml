@@ -4,12 +4,13 @@ name: "Snort Demo"
 # Événements sur lesquels il doit être déclenché
 on:
   workflow_dispatch:
-
+  
 jobs:
-
   # Notre job
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      SNORT_PATH: ""
 
     # Tâches à effectuer, comme expliquées ci-dessus
     steps:
