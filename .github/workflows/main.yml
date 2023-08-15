@@ -28,4 +28,6 @@ jobs:
           echo "SNORT_PATH $SNORT_PATH"
         
       - name: "Run tests"
-        run: ./run_test.sh $SNORT_PATH
+        run: |
+          echo $SNORT_PATH
+          ./run_test.sh $SNORT_PATH
