@@ -25,7 +25,6 @@ jobs:
           SNORT_PATH=$(which snort)
           SNORT_PATH=${SNORT_PATH%/*}
           SNORT_PATH=${SNORT_PATH%/*}
-          env.SNORT_PATH=$SNORT_PATH
         
       - name: "Run tests"
-        run: ./run_test.sh ${{ env.SNORT_PATH }}
+        run: ./run_test.sh $SNORT_PATH
