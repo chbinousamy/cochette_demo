@@ -17,7 +17,7 @@ jobs:
 
       - name: "Install snort and bats"
         run: |
-          apt install -y snort
+          sudo apt install -y snort
           npm install -g bats
 
       - name: "Locate snort"
