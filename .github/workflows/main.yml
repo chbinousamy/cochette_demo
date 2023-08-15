@@ -23,8 +23,8 @@ jobs:
       - name: "Locate snort"
         run: |
           SNORT_PATH=$(which snort)
-          SNORT_PATH=$SNORT_PATH%/*
-          SNORT_PATH=$SNORT_PATH%/*
+          SNORT_PATH=${SNORT_PATH%/*}
+          SNORT_PATH=${SNORT_PATH%/*}
           env.SNORT_PATH=$SNORT_PATH
           echo "env.SNORT_PATH ${{ env.SNORT_PATH }}"
         
