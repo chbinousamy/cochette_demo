@@ -1,0 +1,31 @@
+# Nom de notre workflow
+name: "Snort Ubuntu Demo"
+
+# Événements sur lesquels il doit être déclenché
+on:
+  workflow_dispatch:
+  
+jobs:
+  # Notre job
+  build-and-deploy:
+    runs-on: [ubuntu-latest]
+    # Tâches à effectuer, comme expliquées ci-dessus
+    steps:
+      # 1. On récupère le contenu du dépôt
+      - name: "Checkout"
+        uses: actions/checkout@v3
+
+      - name: "Install snort and bats"
+        run: |
+          apt install -y snort
+          npm install -g bats
+
+      - name: "Locate snort"
+        run: |
+          SNORT_PATH=$(which snort)
+          SNORT_PATH=${SNORT_PATH%/*}
+          SNORT_PATH=${SNORT_PATH%/*}
+          echo "SNORT_PATH=$SNORT_PATH" >> "$GITHUB_ENV"
+        
+      - name: "Run tests"
+        run: ./run_test.sh $SNORT_PATH
