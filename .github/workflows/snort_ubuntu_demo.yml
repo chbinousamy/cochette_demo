@@ -7,7 +7,7 @@ on:
   
 jobs:
   # Notre job
-  build-and-deploy:
+  install-and-test:
     runs-on: [ubuntu-latest]
     # Tâches à effectuer, comme expliquées ci-dessus
     steps:
@@ -23,6 +23,7 @@ jobs:
       - name: "Locate snort"
         run: |
           SNORT_PATH=$(which snort)
+          echo $SNORT_PATH
           SNORT_PATH=${SNORT_PATH%/*}
           SNORT_PATH=${SNORT_PATH%/*}
           echo "SNORT_PATH=$SNORT_PATH" >> "$GITHUB_ENV"
