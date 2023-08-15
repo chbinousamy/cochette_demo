@@ -26,9 +26,6 @@ jobs:
           SNORT_PATH=${SNORT_PATH%/*}
           SNORT_PATH=${SNORT_PATH%/*}
           env.SNORT_PATH=$SNORT_PATH
-          #echo "env.SNORT_PATH ${{ env.SNORT_PATH }}"
         
       - name: "Run tests"
-        run: |
-          #echo ${{ env.SNORT_PATH }}
-          ./run_test.sh ${{ env.SNORT_PATH }}
+        run: ./run_test.sh ${{ env.SNORT_PATH }}
