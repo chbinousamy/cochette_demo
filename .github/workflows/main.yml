@@ -22,7 +22,8 @@ jobs:
       - name: "Locate snort"
         run: |
           SNORT_PATH=$(which snort)
-          SNORT_PATH="${SNORT_PATH##*/bin/snort}"
+          SNORT_PATH=${SNORT_PATH%/*}
+          SNORT_PATH=${SNORT_PATH%/*}
           echo "SNORT_PATH $SNORT_PATH"
         
       - name: "Run tests"
