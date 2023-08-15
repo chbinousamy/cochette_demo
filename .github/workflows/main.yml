@@ -15,8 +15,10 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v3
 
-      - name: "Install snort"
-        run: brew install snort
+      - name: "Install snort and bats"
+        run: |
+          brew install snort
+          npm install -g bats
 
       - name: "Locate snort"
         run: |
