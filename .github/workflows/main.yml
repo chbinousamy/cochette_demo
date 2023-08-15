@@ -9,8 +9,6 @@ jobs:
   # Notre job
   build-and-deploy:
     runs-on: [macos-12]
-    env:
-      SNORT_PATH: ""
     # Tâches à effectuer, comme expliquées ci-dessus
     steps:
       # 1. On récupère le contenu du dépôt
@@ -25,6 +23,7 @@ jobs:
           SNORT_PATH=$(which snort)
           SNORT_PATH=${SNORT_PATH%/*}
           SNORT_PATH=${SNORT_PATH%/*}
+          echo "SNORT_PATH=$SNORT_PATH" >> "$GITHUB_ENV"
         
       - name: "Run tests"
         run: ./run_test.sh $SNORT_PATH
