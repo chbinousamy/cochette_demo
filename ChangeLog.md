@@ -1,3 +1,11 @@
+2023-09-25: 3.1.71.0
+
+* smtp: support DATA\n
+
+2023-09-10: 3.1.70.0
+
+* host_cache: added segmented host cache
+
 2023-05-21: 3.1.62.0
 
 * appid: changes the test to ignore maxrss
